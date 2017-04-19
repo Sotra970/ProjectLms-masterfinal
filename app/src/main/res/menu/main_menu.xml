@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/overview_action"
+    android:title="@string/overview_text"
+    />
+    <item android:id="@+id/myprogress_action"
+    android:title="@string/myprogress_text"
+    />
+    <item android:id="@+id/downloadable_action"
+        android:title="@string/downloadable_material_text"
+        />
+
+    <item android:id="@+id/assignment_action"
+        android:title="@string/assignments_text"
+        />
+
+    <item android:id="@+id/announcement_action"
+        android:title="@string/announcement_text"
+        />
+
+    <item android:id="@+id/calender_action"
+        android:title="@string/class_calendar_text"></item>
+
+    <item android:id="@+id/quiz_action"
+        android:title="@string/quiz_text"></item>
+
+
+
+
+</menu>

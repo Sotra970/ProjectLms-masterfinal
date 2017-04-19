@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ahmed.projectlms">
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".app.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:theme="@style/AppTheme2"
+            android:name=".Activity.LoginActivity">
+
+        </activity>
+        <activity android:name=".Activity.StudentHomeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Activity.HomeActivity"></activity>
+        <activity android:name=".Activity.SignupActivity"></activity>
+        <activity android:name=".Activity.OverviewActivity"></activity>
+        <activity android:name=".Activity.DownloadableActivity"></activity>
+        <activity android:name=".Activity.QuizActivity"></activity>
+        <activity android:name=".Activity.AssignmentActivity"></activity>
+        <activity android:name=".Activity.ProgressActivity"></activity>
+        <activity android:name=".Activity.AnnouncementActivity"></activity>
+        <activity android:name=".Activity.TakeQuizActivity"></activity>
+        <activity android:name=".Activity.NotificationActivity"></activity>
+        <activity android:name=".Activity.MessActivity"></activity>
+        <activity android:name=".Activity.UploadActivity"
+            android:theme="@style/AppTheme.Translucent"
+            ></activity>
+        <activity android:name=".Activity.ClassActivity"></activity>
+        <activity
+            android:theme="@style/AppTheme.Translucent"
+            android:name=".Activity.MessageCompasActivity">
+
+        </activity>
+        <activity android:name=".Activity.ProfileActivity"></activity>
+    </application>
+
+</manifest>

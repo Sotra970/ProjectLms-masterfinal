@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.v7.widget.RecyclerView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recycler_view_downloadable"
+        >
+    </android.support.v7.widget.RecyclerView>
+<android.support.design.widget.FloatingActionButton
+    android:layout_width="wrap_content"
+    android:tint="@color/white"
+    app:fabSize="normal"
+    android:id="@+id/ip_fab"
+    android:layout_margin="24dp"
+    android:layout_gravity="bottom|right"
+    android:src="@drawable/ic_file_upload_black_24dp"
+    android:layout_height="wrap_content" />
+</android.support.design.widget.CoordinatorLayout>

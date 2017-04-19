@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:layout="http://schemas.android.com/tools">
+
+
+
+
+    <android.support.v7.widget.CardView
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="12dp"
+            android:layout_gravity="center"
+            android:id="@+id/cardview_upload"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="6dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/edittext_upload_filename_layout"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_filename"
+                        android:id="@+id/edittext_upload_filename"
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/edittext_upload_desc_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                    <EditText
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/hint_description"
+                        android:id="@+id/edittext_upload_description"
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="6dp"
+                        android:id="@+id/imagebutton_attach"
+                        app:cardBackgroundColor="@color/colorPrimary">
+                        <LinearLayout
+
+                            android:gravity="center"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="8dp"
+                                android:layout_marginTop="8dp"
+                                android:src="@drawable/ic_attach_file_white_24dp"
+                                android:tint="@color/white"
+                                />
+
+                            <FrameLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent">
+                            <TextView
+                                android:id="@+id/textView_take_quiz"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
+                                android:layout_marginTop="8dp"
+                                android:text="@string/upload"
+                                android:textColor="@color/white"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
+                            </FrameLayout>
+
+
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+
+        </android.support.v7.widget.CardView>
+
+    <FrameLayout
+        android:elevation="4dp"
+        android:id="@+id/progressBarView"
+        android:visibility="gone"
+        android:background="#2A000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.CardView
+            android:layout_marginLeft="@dimen/spacing_large"
+            android:layout_marginRight="@dimen/spacing_large"
+            app:contentPaddingLeft="@dimen/padding_normal"
+            app:contentPaddingTop="@dimen/padding_dialog"
+            app:contentPaddingRight="@dimen/padding_dialog"
+            app:contentPaddingBottom="@dimen/padding_normal"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="@android:color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+
+                android:id="@+id/txtPercentage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:textSize="30dp" />
+
+            <ProgressBar
+                android:layout_gravity="center"
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="20dp"
+                android:layout_marginBottom="35dp"
+                android:visibility="gone"/>
+        </android.support.v7.widget.CardView>
+    </FrameLayout>
+
+</android.support.design.widget.CoordinatorLayout>

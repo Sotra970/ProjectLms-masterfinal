@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true"
+    android:layout_marginBottom="4dp"
+    android:orientation="vertical"
+
+    app:cardBackgroundColor="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="kkkkkkkk"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/teacher_first_name"
+                    android:textSize="@dimen/mid_text_size"
+                    android:layout_marginLeft="4dp"
+                    android:gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="kkkkkkkk"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="15dp"
+                    android:id="@+id/teacher_last_name"
+                    android:layout_marginLeft="4dp"
+                    android:textSize="@dimen/mid_text_size"
+                    android:gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="kkk"
+                    android:textColor="@color/black"
+                    android:layout_marginLeft="4dp"
+                    android:layout_gravity="center"
+                    android:id="@+id/noti_date"
+                    android:textSize="10sp"
+                    android:gravity="end"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+          <LinearLayout
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+              <TextView
+                  android:text="kkkkkkkk"
+                  android:textColor="@color/colorSecondaryText"
+                  android:layout_marginLeft="4dp"
+                  android:id="@+id/teacher_noti_data"
+                  android:textSize="@dimen/mid_text_size"
+                  android:gravity="left"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+              <TextView
+                  android:text="kkkkkkkk"
+                  android:textColor="@color/colorSecondaryText"
+                  android:layout_marginLeft="4dp"
+                  android:id="@+id/class_name"
+                  android:textStyle="bold"
+                  android:textSize="@dimen/mid_text_size"
+                  android:gravity="left"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content" />
+          </LinearLayout>
+
+           </LinearLayout>
+
+
+        </LinearLayout>
+        <ImageView
+            android:tint="@color/colorSecondaryText"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:src="@drawable/dotted"
+            android:layerType="software"/>
+    </LinearLayout>
+</LinearLayout>

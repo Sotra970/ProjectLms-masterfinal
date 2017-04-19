@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.ahmed.projectlms.Activity.AssignmentActivity"
+    android:id="@+id/assignment_fragment_container"
+    >
+
+
+</android.support.design.widget.CoordinatorLayout>
