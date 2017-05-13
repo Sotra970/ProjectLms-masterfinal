@@ -18,6 +18,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.example.ahmed.projectlms.Models.Message_model;
 import com.example.ahmed.projectlms.R;
+import com.example.ahmed.projectlms.app.Config;
 
 import java.util.ArrayList;
 
@@ -52,6 +53,8 @@ public class Messages_Adapter extends RecyclerView.Adapter<Messages_Adapter.myVi
             params.setMargins(params.leftMargin, (int) pixels, params.rightMargin, params.bottomMargin);
             holder.itemView.setLayoutParams(params);
         }
+        holder.picture.setImageBitmap(null);
+        holder.picture.setImageDrawable(null);
         final Message_model current = data.get(position) ;
         holder.message.setText(current.getMessage());
         holder.name.setText(current.getName());
@@ -70,7 +73,7 @@ public class Messages_Adapter extends RecyclerView.Adapter<Messages_Adapter.myVi
             }
         };
 
-     try{   Glide.with(context).load(current.getImg()).centerCrop().into(target);}catch (Exception e){}
+     try{   Glide.with(context).load(Config.img_url+current.getImg()).centerCrop().into(target);}catch (Exception e){}
         Log.e("slider","img url "+ data.get(position));
 
     }

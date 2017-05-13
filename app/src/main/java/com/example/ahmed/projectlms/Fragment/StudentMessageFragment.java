@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -77,7 +78,7 @@ public class StudentMessageFragment extends Fragment implements AdapterView.OnIt
             @Override
             public void onClick(View view) {
                 if (sendBtn== view)
-                {                view.findViewById(R.id.loadingSpinner).setVisibility(View.VISIBLE);
+                {
                     sendMessageStudent();
                 }
             }
@@ -87,17 +88,54 @@ public class StudentMessageFragment extends Fragment implements AdapterView.OnIt
         return view;
 
     }
+
+
+    // Validating Pass
+    private boolean validateEditText(EditText editText) {
+        String txt = editText.getText().toString().trim();
+
+        if (txt.equals(null)||txt.trim().isEmpty()) {
+            editText.setError(getString(R.string.incorrect_data));
+            editText.requestFocus();
+            return false;
+        } else {
+            editText.setError(null);
+        }
+
+        return true;
+    }
+
+
+    boolean validate_sp(Spinner spinner, String txt ) {
+        TextView textView = ((TextView) spinner.getChildAt(0));
+        Log.e("txtview" , textView.getText().toString());
+        Log.e("txt" , txt);
+        if ( txt.trim().isEmpty()  ){
+            return false;
+        }
+        return true;
+    }
+
     public void sendMessageStudent()
     {
 
+        if (!validateEditText(studentMessageText)) {
+            return;
+        }
 
+        if (!validate_sp(spinner, student_txt)) {
+            return;
+
+        }
+
+        view.findViewById(R.id.loadingSpinners).setVisibility(View.VISIBLE);
         pmessagecontent = studentMessageText.getText().toString();
 
         StringRequest stringRequest  = new StringRequest(Request.Method.POST,Config.BASE_URL + "message_send_student.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        view.findViewById(R.id.loadingSpinner).setVisibility(View.GONE);
+                        view.findViewById(R.id.loadingSpinners).setVisibility(View.GONE);
                         getActivity().setResult(Activity.RESULT_OK);
                         getActivity().supportFinishAfterTransition();
                     }
@@ -105,7 +143,7 @@ public class StudentMessageFragment extends Fragment implements AdapterView.OnIt
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                view.findViewById(R.id.loadingSpinner).setVisibility(View.GONE);
+                view.findViewById(R.id.loadingSpinners).setVisibility(View.GONE);
                 String message =   "please check connection";
                 Toast.makeText(getContext(), "" + message, Toast.LENGTH_LONG).show();
             }

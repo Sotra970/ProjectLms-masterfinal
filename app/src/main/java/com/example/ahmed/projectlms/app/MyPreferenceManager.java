@@ -41,6 +41,7 @@ public class MyPreferenceManager {
     private static final String KEY_STUDENT_Image = "student_image";
     private static final String KEY_CLASS_ID = "class_id";
     private static final String KEY_STATUS = "status";
+    private static final String KEY_STUDENT_EMAIL = "email";
 
 
     // Constructor
@@ -61,6 +62,7 @@ public class MyPreferenceManager {
         editor.putString(KEY_STUDENT_Image, user.getStudent_img());
         editor.putString(KEY_STUDENT_PASS, user.getPassword());
         editor.putString(KEY_CLASS_ID,user.getClass_id());
+        editor.putString(KEY_STUDENT_EMAIL,user.getEmail());
         editor.putString(KEY_STATUS,user.getStatus());
         editor.commit();
 
@@ -71,6 +73,7 @@ public class MyPreferenceManager {
     public UserModel getUser() {
         if (pref.getString(KEY_STUDENT_ID, null) != null) {
             String id, firstname,lastname,studentImg, username, pass,class_id,status;
+            String email ;
             id = pref.getString(KEY_STUDENT_ID, null);
             firstname = pref.getString(KEY_STUDENT_FIRST_NAME, null);
             lastname = pref.getString(KEY_STUDENT_LAST_NAME, null);
@@ -79,6 +82,7 @@ public class MyPreferenceManager {
             pass = pref.getString(KEY_STUDENT_PASS, null);
             class_id = pref.getString(KEY_CLASS_ID,null);
             status = pref.getString(KEY_STATUS,null);
+            email = pref.getString(KEY_STUDENT_EMAIL,null);
 
             UserModel user = new UserModel();
             user.setStudent_id(id);
@@ -89,6 +93,7 @@ public class MyPreferenceManager {
             user.setPassword(pass);
             user.setClass_id(class_id);
             user.setStatus(status);
+            user.setEmail(email);
             return user;
         }
         return null;

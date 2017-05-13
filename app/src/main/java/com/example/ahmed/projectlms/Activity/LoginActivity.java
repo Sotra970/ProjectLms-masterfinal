@@ -112,6 +112,7 @@ public class LoginActivity extends AppCompatActivity  {
                         user.setUserName(userobj.getString("username"));
                         user.setStatus(userobj.getString("status"));
                         user.setStudent_img(userobj.getString("location"));
+                        user.setEmail(userobj.getString("email"));
 
 
                         AppController.getInstance().getPrefManager().storeUser(user);
@@ -129,6 +130,7 @@ public class LoginActivity extends AppCompatActivity  {
                 } catch (JSONException e) {
                     Log.d(TAG, "json error" + e.getMessage());
                     {
+                        findViewById(R.id.loadingSpinner).setVisibility(View.GONE);
 
                     }
                 }

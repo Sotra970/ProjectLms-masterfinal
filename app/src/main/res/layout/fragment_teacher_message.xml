@@ -69,11 +69,12 @@
             android:textColor="@color/white"/>
     </LinearLayout>
 
+
     <FrameLayout
         android:background="@color/scrim"
         android:visibility="gone"
         android:clickable="true"
-        android:id="@+id/loadingSpinner"
+        android:id="@+id/loadingSpinners"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ProgressBar
@@ -84,7 +85,6 @@
             android:layout_height="wrap_content"
             />
     </FrameLayout>
-
 
 </FrameLayout>
 

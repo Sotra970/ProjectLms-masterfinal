@@ -94,7 +94,7 @@ public class MessageFragment extends Fragment {
                             message_model.setMessage(message.getString("content"));
                            try{
 
-                               message_model.setImg(message.getString("img"));
+                               message_model.setImg(temp.getString("img"));
                            }catch (Exception e){}
                             if (message.getString("reciever_id").equals(AppController.getInstance().getPrefManager().getUser().getStudent_id()))
                             message_model.setName(message.getString("sender_name"));

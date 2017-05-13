@@ -109,5 +109,7 @@
     <string name="class_activity">Class</string>
     <string name="take_quiz_text">Take Quiz</string>
     <string name="downloadable_text">Downloadable Material</string>
+    <string name="email">Email</string>
+    <string name="edit">Edit profile</string>
 
 </resources>

@@ -3,6 +3,7 @@ package com.example.ahmed.projectlms.Fragment;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -88,7 +90,6 @@ public class TeacherMessageFragment extends Fragment implements AdapterView.OnIt
             public void onClick(View view) {
                 if (sendBtn == view)
                 {
-                    view.findViewById(R.id.loadingSpinner).setVisibility(View.VISIBLE);
                     sendMessageTeacher();
                 }
             }
@@ -96,8 +97,45 @@ public class TeacherMessageFragment extends Fragment implements AdapterView.OnIt
         return view;
     }
 
+    // Validating Pass
+    private boolean validateEditText(EditText editText) {
+        String txt = editText.getText().toString().trim();
+
+        if (txt.equals(null)||txt.trim().isEmpty()) {
+            editText.setError(getString(R.string.incorrect_data));
+            editText.requestFocus();
+            return false;
+        } else {
+            editText.setError(null);
+        }
+
+        return true;
+    }
+
+
+    boolean validate_sp(Spinner spinner, String txt ) {
+        TextView textView = ((TextView) spinner.getChildAt(0));
+        Log.e("txtview" , textView.getText().toString());
+        Log.e("txt" , txt);
+        if ( txt.trim().isEmpty()  ){
+            return false;
+        }
+        return true;
+    }
     public void sendMessageTeacher()
     {
+
+        if (!validateEditText(teacherMessageText)) {
+            return;
+        }
+
+        if (!validate_sp(spinner, teacher_txt)) {
+            return;
+
+        }
+
+        view.findViewById(R.id.loadingSpinners).setVisibility(View.VISIBLE);
+
 
         pmessagecontent = teacherMessageText.getText().toString();
 
@@ -106,7 +144,7 @@ public class TeacherMessageFragment extends Fragment implements AdapterView.OnIt
                     @Override
                     public void onResponse(String response) {
 
-                        view.findViewById(R.id.loadingSpinner).setVisibility(View.GONE);
+                        view.findViewById(R.id.loadingSpinners).setVisibility(View.GONE);
                         getActivity().setResult(Activity.RESULT_OK);
                         getActivity().supportFinishAfterTransition();
                     }
@@ -115,7 +153,7 @@ public class TeacherMessageFragment extends Fragment implements AdapterView.OnIt
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                view.findViewById(R.id.loadingSpinner).setVisibility(View.GONE);
+                view.findViewById(R.id.loadingSpinners).setVisibility(View.GONE);
                 String message =   "please check connection";
                 Toast.makeText(getContext(), "" + message, Toast.LENGTH_LONG).show();
             }

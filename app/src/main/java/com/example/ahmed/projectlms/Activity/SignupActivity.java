@@ -48,10 +48,10 @@ import java.util.Map;
 
 public class SignupActivity extends AppCompatActivity implements  AdapterView.OnItemSelectedListener {
 
-    EditText studentID,firstName,lastName,passwordText,confirmPassword;
+    EditText studentID,firstName,lastName,passwordText,confirmPassword , email;
     Button signUP;
-    String pstudentID,pfirstName,plastName,ppassword,ppasswordConfirm;
-    TextInputLayout studentIDLayout,firstNameLayout,lastNameLayout,passwordLayout,confirmPasswordLayout;
+    String pstudentID,pfirstName,plastName,ppassword,ppasswordConfirm  ;
+    TextInputLayout studentIDLayout,firstNameLayout,lastNameLayout,passwordLayout,confirmPasswordLayout , email_layout;
     private String TAG = SignupActivity.class.getSimpleName();
     ArrayList<String> classes = new ArrayList<String>();
     ArrayList<String> classes_id = new ArrayList<String>();
@@ -75,7 +75,11 @@ public class SignupActivity extends AppCompatActivity implements  AdapterView.On
         lastName = (EditText)  findViewById(R.id.student_last_name);
         passwordText = (EditText) findViewById(R.id.student_password);
         confirmPassword = (EditText) findViewById(R.id.student_confirm_password);
+        email = (EditText) findViewById(R.id.email);
+
         signUP = (Button) findViewById(R.id.button_signup);
+
+        email_layout = (TextInputLayout) findViewById(R.id.email_layout);
         studentIDLayout = (TextInputLayout) findViewById(R.id.layout_student_id);
         firstNameLayout = (TextInputLayout) findViewById(R.id.input_layout_first_name);
         lastNameLayout = (TextInputLayout) findViewById(R.id.input_layout_last_name);
@@ -94,6 +98,7 @@ public class SignupActivity extends AppCompatActivity implements  AdapterView.On
         signUP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                findViewById(R.id.loadingSpinner).setVisibility(View.VISIBLE);
                 register();
             }
         });
@@ -110,6 +115,9 @@ public class SignupActivity extends AppCompatActivity implements  AdapterView.On
                 return;
             }
         if (!validateEditText(lastName, lastNameLayout)) {
+            return;
+        }
+        if (!validateEditText(email, email_layout)) {
             return;
         }
 
@@ -137,25 +145,25 @@ public class SignupActivity extends AppCompatActivity implements  AdapterView.On
                     JSONObject obj = new JSONObject(response);
                     String res = obj.getString("response");
                     if (res.equals("success")) {
-                        JSONObject userobj = obj.getJSONObject("data");
-                        UserModel user = new UserModel();
-                        user.setStudent_id(userobj.getString("student_id"));
-                        user.setFirstName(userobj.getString("firstname"));
-                        user.setLastName(userobj.getString("lastname"));
-                        user.setClass_id(userobj.getString("class_id"));
-                        user.setPassword(userobj.getString("password"));
-                        user.setUserName(userobj.getString("username"));
-                        user.setStatus(userobj.getString("status"));
-                        user.setStudent_img(userobj.getString("location"));
+//                        JSONObject userobj = obj.getJSONObject("data");
+//                        UserModel user = new UserModel();
+//                        user.setStudent_id(userobj.getString("student_id"));
+//                        user.setFirstName(userobj.getString("firstname"));
+//                        user.setLastName(userobj.getString("lastname"));
+//                        user.setClass_id(userobj.getString("class_id"));
+//                        user.setPassword(userobj.getString("password"));
+//                        user.setUserName(userobj.getString("username"));
+//                        user.setStatus(userobj.getString("status"));
+//                        user.setStudent_img(userobj.getString("location"));
 
-                        AppController.getInstance().getPrefManager().storeUser(user);
+                        supportFinishAfterTransition();
                         /*Intent intent = new Intent(new Intent(getApplicationContext(), HomeActivity.class));
                         ComponentName cn = intent.getComponent();
                         Intent mainIntent = IntentCompat.makeRestartActivityTask(cn);
                         startActivity(mainIntent);
                         finish();*/
                     } else {
-
+                        findViewById(R.id.loadingSpinner).setVisibility(View.GONE);
                         Toast.makeText(getApplicationContext(), getString(R.string.login_err), Toast.LENGTH_LONG).show();
                     }
 
@@ -163,6 +171,7 @@ public class SignupActivity extends AppCompatActivity implements  AdapterView.On
                     Log.d(TAG, "json error" + e.getMessage());
                     {
 
+                        findViewById(R.id.loadingSpinner).setVisibility(View.GONE);
                     }
                 }
             }
@@ -176,6 +185,8 @@ public class SignupActivity extends AppCompatActivity implements  AdapterView.On
                     String message =   "please check connection";
                     Toast.makeText(getApplicationContext(), "" + message, Toast.LENGTH_LONG).show();
                 }
+
+                findViewById(R.id.loadingSpinner).setVisibility(View.GONE);
             }
         })
         {
@@ -187,6 +198,7 @@ public class SignupActivity extends AppCompatActivity implements  AdapterView.On
                 params.put("firstname",pfirstName);
                 params.put("lastname",plastName);
                 params.put("password",ppassword);
+                params.put("email",email.getText().toString());
                 /*params.put("confirmpassword",ppasswordConfirm);*/
                 params.put("class_id",class_id_choosed);
 
@@ -330,11 +342,11 @@ public class SignupActivity extends AppCompatActivity implements  AdapterView.On
     }
 
     void toolbar_action_setup(String title) {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(title);
         setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        TextView page_title = (TextView) findViewById(R.id.main_toolbar_title);
-        page_title.setText(title);
 
 
     }

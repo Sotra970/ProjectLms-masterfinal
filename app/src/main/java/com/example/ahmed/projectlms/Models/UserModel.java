@@ -8,8 +8,15 @@ import java.io.Serializable;
 
 public class UserModel implements Serializable {
     String student_id,firstName,lastName,class_id,userName,password,student_img,status;
+    String email ;
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getStudent_id() {
         return student_id;

@@ -25,7 +25,7 @@ import com.example.ahmed.projectlms.app.AppController;
  */
 
 public class StudentHomeActivity extends AppCompatActivity {
-    CardView classCard, profileCard, inboxCard, outboxCard;
+    CardView classCard, profileCard, inboxCard, notfication;
     private Toolbar toolbar;
 
     @Override
@@ -40,7 +40,7 @@ public class StudentHomeActivity extends AppCompatActivity {
         classCard = (CardView) findViewById(R.id.classes_card);
         profileCard = (CardView) findViewById(R.id.profile_card);
         inboxCard = (CardView) findViewById(R.id.inbox_card);
-        outboxCard = (CardView) findViewById(R.id.outbox_card);
+        notfication = (CardView) findViewById(R.id.notfication);
 
         View power = findViewById(R.id.logout);
         power.setOnClickListener(new View.OnClickListener() {
@@ -57,6 +57,13 @@ public class StudentHomeActivity extends AppCompatActivity {
                     startActivity(intent);
             }
         });
+        notfication.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getApplicationContext(), NotificationActivity.class);
+                    startActivity(intent);
+                }
+            });
 
         classCard.setOnClickListener(new View.OnClickListener() {
             @Override

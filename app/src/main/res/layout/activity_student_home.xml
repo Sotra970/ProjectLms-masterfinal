@@ -151,7 +151,7 @@
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="108dp"
-                            android:src="@drawable/inbox"/>
+                            android:src="@drawable/out"/>
                         <TextView
                             android:textStyle="bold"
                             android:textColor="@color/white"
@@ -160,7 +160,7 @@
                             android:textSize="@dimen/mid_text_size"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/inbox"
+                            android:text="@string/messages"
                             android:gravity="center"
                             />
                     </LinearLayout>
@@ -174,7 +174,7 @@
                 >
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/outbox_card"
+                    android:id="@+id/notfication"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:cardUseCompatPadding="true"
@@ -187,7 +187,7 @@
                             android:layout_gravity="center"
                             android:layout_width="match_parent"
                             android:layout_height="108dp"
-                            android:src="@drawable/out"/>
+                            android:src="@drawable/notfication"/>
                         <TextView
                             android:textStyle="bold"
                             android:textColor="@color/white"
@@ -196,7 +196,7 @@
                             android:textSize="@dimen/mid_text_size"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/outbox"
+                            android:text="@string/notfication"
                             android:gravity="center"
                             />
                     </LinearLayout></android.support.v7.widget.CardView>
